@@ -13,7 +13,7 @@ const App = () => {
   const [bound,setBounds] = useState({});
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-  const [weatherData,setWeatherData] = useState({});
+  const [weatherData,setWeatherData] = useState([]);
   
 
   useEffect(()=>{
@@ -30,7 +30,8 @@ const App = () => {
     .then((data)=>{
       console.log(data);
       setFilteredPlaces([]);
-      setPlaces(data);
+      setRating('');
+      setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
     })
 
   },[type,coordinates,bound])
