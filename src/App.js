@@ -13,7 +13,7 @@ const App = () => {
   const [bound,setBounds] = useState({});
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-  const [weatherData,setWeatherData] = useState([]);
+  const [weatherData,setWeatherData] = useState('');
   
 
   useEffect(()=>{
@@ -25,7 +25,7 @@ const App = () => {
   
   useEffect(()=>{
     getWeatherData(coordinates.lat,coordinates.lng)
-      .then((data)=> setWeatherData(data));
+      .then((data)=> setWeatherData(data.weather[0].icon));
     getPlacesData(type,bound.sw,bound.ne)
     .then((data)=>{
       console.log(data);

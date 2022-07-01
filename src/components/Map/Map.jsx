@@ -12,8 +12,6 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
   const classes = useStyles();
   const isDesktop = useMediaQuery('(min-width:600px)');
   console.log(weatherData);
-  // const icon = weatherData.weather[0].icon;
-  // console.log(icon);
 
   return (
     <div className={classes.mapContainer}>
@@ -60,11 +58,10 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
           </div>
 
         ))}
-        {weatherData?.length && weatherData.map((data, i) => (
-          <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
-            <img src={`http://openweathermap.org/img/w/04n.png`} height="70px" />
-          </div>
-        ))}
+        <div>
+          <img src={`http://openweathermap.org/img/w/${weatherData}.png`} height="70px" />
+        </div>
+
 
 
 
